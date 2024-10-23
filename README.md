@@ -1,79 +1,93 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
-# Getting Started
+# WeatherApp 🌦️
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+A React Native application that provides real-time weather updates based on the user's location using geolocation services.
 
-## Step 1: Start the Metro Server
+## Table of Contents
+- [Introduction](#introduction)
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Building the APK](#building-the-apk)
+- [Contributing](#contributing)
+- [License](#license)
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+## Introduction
+WeatherApp is a simple and elegant React Native mobile application that shows the current weather details using geolocation. The app can also fetch weather data for other locations by searching city names.
 
-To start Metro, run the following command from the _root_ of your React Native project:
+## Features
+- Fetches real-time weather data based on the user's location.
+- Search weather by city name.
+- Displays temperature, humidity, wind speed, and weather conditions.
 
-```bash
-# using npm
-npm start
+## Tech Stack
+- **React Native**: Framework for building cross-platform mobile apps.
+- **Geolocation Service**: Used to get the user's location.
+- **OpenWeather API**: To fetch weather data.
 
-# OR using Yarn
-yarn start
-```
+## Installation
 
-## Step 2: Start your Application
+1. Clone this repository:
+    ```bash
+    git clone https://github.com/Hitesh-jadhav/WeatherApp.git
+    cd WeatherApp
+    ```
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
+2. Install dependencies:
+    ```bash
+    npm install
+    ```
 
-### For Android
+3. Create an `.env` file and add your OpenWeather API key:
+    ```bash
+    REACT_NATIVE_WEATHER_API_KEY=your_openweather_api_key
+    ```
 
-```bash
-# using npm
-npm run android
+4. Link the geolocation package (if not done automatically):
+    ```bash
+    npx react-native link react-native-geolocation-service
+    ```
 
-# OR using Yarn
-yarn android
-```
+## Usage
 
-### For iOS
+1. Start the development server:
+    ```bash
+    npx react-native start
+    ```
 
-```bash
-# using npm
-npm run ios
+2. Run the app on Android or iOS:
+    ```bash
+    npx react-native run-android
+    npx react-native run-ios
+    ```
 
-# OR using Yarn
-yarn ios
-```
+## Building the APK
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
+To generate a signed APK:
 
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
+1. Open `android/app/build.gradle` and modify the `signingConfigs` to match your release key details:
+    ```gradle
+    signingConfigs {
+        release {
+            storeFile file("your-release-key.keystore")
+            storePassword "your-store-password"
+            keyAlias "your-key-alias"
+            keyPassword "your-key-password"
+        }
+    }
+    ```
 
-## Step 3: Modifying your App
+2. Generate the APK:
+    ```bash
+    cd android
+    ./gradlew assembleRelease
+    ```
 
-Now that you have successfully run the app, let's modify it.
+The generated APK can be found in the `android/app/build/outputs/apk/release` folder.
 
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
+## Contributing
+Contributions are welcome! Please submit a pull request or open an issue to discuss improvements and new features.
 
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+## License
+This project is licensed under the MIT License.
