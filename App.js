@@ -12,9 +12,7 @@ import {
 } from 'react-native';
 import Geolocation from 'react-native-geolocation-service'; // For accessing device geolocation
 import axios from 'axios'; // For making API requests
-
-// Replace with your OpenWeather API Key
-const API_KEY = 'your_OpenWeather_API_Key';
+import { OPENWEATHER_API_KEY } from '@env';
 
 export default function App() {
   // State to hold the user's current location (latitude and longitude)
@@ -34,7 +32,7 @@ export default function App() {
       setLoading(true); // Start loading
       // Fetch weather data from OpenWeather API based on coordinates
       const response = await axios.get(
-        `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${API_KEY}`
+        `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${OPENWEATHER_API_KEY}`
       );
       setWeather(response.data); // Set the fetched weather data in state
       setLoading(false); // Stop loading
@@ -50,7 +48,7 @@ export default function App() {
       setLoading(true); // Start loading
       // Fetch weather data based on city name
       const response = await axios.get(
-        `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=${API_KEY}`
+        `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=${OPENWEATHER_API_KEY}`
       );
       setWeather(response.data); // Set the fetched weather data in state
       setLoading(false); // Stop loading
