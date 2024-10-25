@@ -14,7 +14,7 @@ import Geolocation from 'react-native-geolocation-service'; // For accessing dev
 import axios from 'axios'; // For making API requests
 
 // Replace with your OpenWeather API Key
-const API_KEY = '73a35d8199c049a738b6bc8695827545';
+const API_KEY = 'your_OpenWeather_API_Key';
 
 export default function App() {
   // State to hold the user's current location (latitude and longitude)
