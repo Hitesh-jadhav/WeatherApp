@@ -14,7 +14,7 @@ import Geolocation from 'react-native-geolocation-service'; // For accessing dev
 import axios from 'axios'; // For making API requests
 
 // Replace with your OpenWeather API Key
-const API_KEY = 'API_KEY';
+const API_KEY = '73a35d8199c049a738b6bc8695827545';
 
 export default function App() {
   // State to hold the user's current location (latitude and longitude)
@@ -151,7 +151,15 @@ export default function App() {
         ) : null}
 
         {/* Button to refresh the location and fetch weather data again */}
-        <TouchableOpacity style={styles.button} onPress={getLocation}>
+        <TouchableOpacity style={styles.button} onPress={
+          () => {
+            if (searchLocation.trim()) {
+              getWeatherByLocationName(searchLocation);
+            } else {
+              getLocation();
+            }
+          }
+        }>
           <Text style={styles.buttonText}>Refresh Location</Text>
         </TouchableOpacity>
 
