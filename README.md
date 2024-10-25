@@ -41,7 +41,7 @@ WeatherApp is a simple and elegant React Native mobile application that shows th
 
 3. Create an `.env` file and add your OpenWeather API key:
     ```bash
-    REACT_NATIVE_WEATHER_API_KEY=your_openweather_api_key
+    OPENWEATHER_API_KEY=your_openweather_api_key
     ```
 
 4. Link the geolocation package (if not done automatically):
